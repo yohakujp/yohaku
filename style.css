@@ -1,0 +1,1665 @@
+/* =========================
+   YOHAKU PILATES STUDIO
+========================= */
+
+:root {
+  --white: #ffffff;
+  --off-white: #f7f6f2;
+  --beige: #ebe8e1;
+  --gray: #8b8b86;
+  --dark: #20211f;
+  --line: rgba(32, 33, 31, 0.14);
+  --header-height: 88px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--dark);
+  background: var(--white);
+  font-family:
+    "Helvetica Neue",
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    Arial,
+    sans-serif;
+  font-size: 15px;
+  line-height: 1.9;
+  letter-spacing: 0.04em;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  color: inherit;
+  font: inherit;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 400;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+section {
+  scroll-margin-top: var(--header-height);
+}
+
+.mobile-only {
+  display: none;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: var(--header-height);
+  padding: 0 48px;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--white);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(22, 22, 20, 0.16);
+  backdrop-filter: blur(12px);
+  transition:
+    color 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.header.is-scrolled {
+  color: var(--dark);
+  border-color: var(--line);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.header-logo,
+.footer-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo-mark {
+  display: block;
+  width: 35px;
+  height: 35px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+}
+
+.logo-text,
+.footer-logo > span:last-child {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.logo-text strong,
+.footer-logo strong {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+}
+
+.logo-text small,
+.footer-logo small {
+  margin-top: 5px;
+  font-size: 8px;
+  letter-spacing: 0.18em;
+}
+
+.navigation {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.navigation a {
+  position: relative;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+}
+
+.navigation a::after {
+  position: absolute;
+  right: 0;
+  bottom: -7px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  margin: auto;
+  background: currentColor;
+  content: "";
+  transition: width 0.3s ease;
+}
+
+.navigation a:hover::after {
+  width: 100%;
+}
+
+.menu-button {
+  display: none;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  position: relative;
+  display: flex;
+  min-height: 100svh;
+  padding: 150px 7vw 90px;
+  align-items: center;
+  overflow: hidden;
+  color: var(--white);
+  background: #99958e;
+}
+
+.hero-background {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(35, 38, 33, 0.1),
+      rgba(35, 38, 33, 0.22)
+    ),
+    url("images/hero.jpg") center / cover no-repeat;
+  transform: scale(1.02);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(10, 10, 9, 0.5) 0%,
+      rgba(10, 10, 9, 0.18) 50%,
+      rgba(10, 10, 9, 0.05) 100%
+    );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: min(660px, 100%);
+}
+
+.hero-label,
+.section-label {
+  margin-bottom: 26px;
+  font-size: 10px;
+  letter-spacing: 0.28em;
+}
+
+.hero h1 {
+  margin-bottom: 34px;
+  font-family:
+    "Times New Roman",
+    "Hiragino Mincho ProN",
+    serif;
+  font-size: clamp(50px, 7vw, 102px);
+  line-height: 1.22;
+  letter-spacing: 0.08em;
+}
+
+.hero-description {
+  margin-bottom: 42px;
+  font-size: 15px;
+  line-height: 2.15;
+  letter-spacing: 0.12em;
+}
+
+.scroll-guide {
+  position: absolute;
+  z-index: 2;
+  right: 40px;
+  bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  writing-mode: vertical-rl;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 70px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.scroll-line::after {
+  display: block;
+  width: 1px;
+  height: 35px;
+  background: var(--white);
+  content: "";
+  animation: scrollLine 1.8s ease-in-out infinite;
+}
+
+@keyframes scrollLine {
+  0% {
+    transform: translateY(-45px);
+  }
+
+  100% {
+    transform: translateY(80px);
+  }
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.button {
+  display: inline-flex;
+  min-width: 250px;
+  min-height: 58px;
+  padding: 12px 25px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  border: 1px solid transparent;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+}
+
+.button-light {
+  color: var(--dark);
+  background: var(--white);
+}
+
+.button-light:hover {
+  background: var(--beige);
+}
+
+.button-outline {
+  color: var(--dark);
+  border-color: var(--dark);
+  background: transparent;
+}
+
+.button-outline:hover {
+  color: var(--white);
+  background: var(--dark);
+}
+
+/* =========================
+   SECTION COMMON
+========================= */
+
+.section {
+  padding: 140px max(7vw, 32px);
+}
+
+.section-heading {
+  margin-bottom: 72px;
+}
+
+.section-heading h2,
+.feature-introduction h2,
+.contact-content h2 {
+  margin-bottom: 0;
+  font-family:
+    "Times New Roman",
+    "Hiragino Mincho ProN",
+    serif;
+  font-size: clamp(38px, 5vw, 68px);
+  line-height: 1.35;
+  letter-spacing: 0.06em;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+  background: var(--off-white);
+}
+
+.about-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.8fr) minmax(500px, 1.6fr);
+  gap: 9vw;
+  align-items: center;
+}
+
+.about-copy {
+  padding-bottom: 50px;
+}
+
+.about-lead {
+  margin-bottom: 42px;
+  font-family:
+    "Times New Roman",
+    "Hiragino Mincho ProN",
+    serif;
+  font-size: clamp(30px, 3.5vw, 50px);
+  line-height: 1.55;
+  letter-spacing: 0.08em;
+}
+
+.about-copy > p:not(.about-lead) {
+  margin-bottom: 25px;
+}
+
+.about-images {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 20px;
+  align-items: end;
+}
+
+.image-box {
+  position: relative;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.7);
+  background-color: #aaa69f;
+  background-position: center;
+  background-size: cover;
+}
+
+.image-box span {
+  position: absolute;
+  right: 20px;
+  bottom: 15px;
+  font-size: 8px;
+  letter-spacing: 0.14em;
+}
+
+.image-box-large {
+  aspect-ratio: 4 / 5;
+  background-image: url("images/about01.jpg");
+}
+
+.image-box-small {
+  aspect-ratio: 3 / 4;
+  background-image: url("images/about02.jpg");
+}
+
+/* =========================
+   FEATURE INTRODUCTION
+========================= */
+
+.feature-introduction {
+  padding: 160px max(7vw, 32px);
+  background: var(--white);
+}
+
+.feature-introduction-inner {
+  max-width: 950px;
+}
+
+.feature-introduction h2 {
+  margin-bottom: 52px;
+}
+
+.feature-lead {
+  margin-bottom: 28px;
+  font-family:
+    "Times New Roman",
+    "Hiragino Mincho ProN",
+    serif;
+  font-size: clamp(24px, 3vw, 40px);
+  line-height: 1.65;
+  letter-spacing: 0.08em;
+}
+
+/* =========================
+   FEATURE CARDS
+========================= */
+
+.feature-cards-section {
+  padding-top: 0;
+  background: var(--white);
+}
+
+.feature-grid {
+  display: grid;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.feature-card {
+  min-height: 430px;
+  padding: 55px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.feature-number {
+  margin-bottom: 90px;
+  color: var(--gray);
+  font-size: 12px;
+  letter-spacing: 0.15em;
+}
+
+.feature-card h3 {
+  margin-bottom: 30px;
+  font-family:
+    "Times New Roman",
+    "Hiragino Mincho ProN",
+    serif;
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: 1.45;
+  letter-spacing: 0.05em;
+}
+
+.feature-card > p:last-child {
+  max-width: 430px;
+  color: #63645f;
+}
+
+/* =========================
+   PRICE
+========================= */
+
+.price-section {
+  background: var(--off-white);
+}
+
+.price-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: stretch;
+}
+
+.price-card {
+  position: relative;
+  display: flex;
+  min-height: 650px;
+  padding: 48px 38px;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  background: var(--white);
+}
+
+.price-card-featured {
+  color: var(--white);
+  border-color: var(--dark);
+  background: var(--dark);
+}
+
+.recommended-label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 9px 16px;
+  color: var(--dark);
+  background: var(--white);
+  font-size: 8px;
+  letter-spacing: 0.2em;
+}
+
+.price-card-header {
+  margin-bottom: 35px;
+}
+
+.price-category {
+  margin-bottom: 8px;
+  color: var(--gray);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+}
+
+.price-card-featured .price-category {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.price-name {
+  margin: 0;
+  font-family:
+    "Times New Roman",
+    "Hiragino Mincho ProN",
+    serif;
+  font-size: 26px;
+  letter-spacing: 0.05em;
+}
+
+.price {
+  margin-bottom: 38px;
+  font-family: "Times New Roman", serif;
+  font-size: clamp(42px, 4vw, 62px);
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+.price span {
+  margin-right: 5px;
+  font-size: 20px;
+}
+
+.price small {
+  font-family: inherit;
+  font-size: 13px;
+}
+
+.price-description {
+  margin-bottom: 35px;
+  color: #686963;
+  font-size: 14px;
+}
+
+.price-card-featured .price-description {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.price-list {
+  margin-bottom: 45px;
+}
+
+.price-list li {
+  position: relative;
+  padding: 10px 0 10px 22px;
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+}
+
+.price-list li::before {
+  position: absolute;
+  top: 18px;
+  left: 2px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  content: "";
+}
+
+.price-card-featured .price-list li {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.price-card .button {
+  width: 100%;
+  margin-top: auto;
+}
+
+.ticket-list {
+  margin-bottom: 30px;
+}
+
+.ticket-row {
+  display: flex;
+  padding: 22px 0;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.ticket-row p {
+  margin-bottom: 4px;
+  font-size: 15px;
+}
+
+.ticket-row span {
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 10px;
+}
+
+.ticket-row strong {
+  font-family: "Times New Roman", serif;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+/* =========================
+   FAQ
+========================= */
+
+.faq-section {
+  background: var(--white);
+}
+
+.faq-list {
+  max-width: 1100px;
+  margin-left: auto;
+}
+
+.faq-item {
+  border-top: 1px solid var(--line);
+}
+
+.faq-item:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq-item summary {
+  display: flex;
+  min-height: 95px;
+  padding: 20px 5px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  cursor: pointer;
+  list-style: none;
+  font-family:
+    "Times New Roman",
+    "Hiragino Mincho ProN",
+    serif;
+  font-size: 19px;
+  letter-spacing: 0.04em;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-icon {
+  position: relative;
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+}
+
+.faq-icon::before,
+.faq-icon::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 1px;
+  background: var(--dark);
+  content: "";
+  transform: translate(-50%, -50%);
+  transition: transform 0.25s ease;
+}
+
+.faq-icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.faq-item[open] .faq-icon::after {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.faq-item > p {
+  max-width: 800px;
+  margin: 0;
+  padding: 0 60px 38px 5px;
+  color: #686963;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-section {
+  position: relative;
+  display: flex;
+  min-height: 720px;
+  padding: 130px max(7vw, 32px);
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: var(--white);
+  text-align: center;
+  background: #77746e;
+}
+
+.contact-background {
+  position: absolute;
+  inset: 0;
+  background: url("images/contact.jpg") center / cover no-repeat;
+}
+
+.contact-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(19, 20, 18, 0.55);
+}
+
+.contact-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+.contact-content h2 {
+  margin-bottom: 38px;
+}
+
+.contact-content > p:not(.section-label) {
+  margin-bottom: 45px;
+  line-height: 2.2;
+}
+
+.contact-button {
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.65);
+  background: transparent;
+}
+
+.contact-button:hover {
+  color: var(--dark);
+  background: var(--white);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+  padding: 80px max(7vw, 32px) 35px;
+  color: var(--white);
+  background: var(--dark);
+}
+
+.footer-top {
+  display: flex;
+  padding-bottom: 70px;
+  align-items: flex-start;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.footer-navigation {
+  display: grid;
+  gap: 18px 55px;
+  grid-template-columns: repeat(2, auto);
+}
+
+.footer-navigation a {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+
+.footer-bottom {
+  display: flex;
+  padding-top: 30px;
+  align-items: center;
+  justify-content: space-between;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+.mobile-reservation {
+  display: none;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+.reveal {
+  opacity: 1;
+  transform: none;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media screen and (max-width: 1000px) {
+  .header {
+    padding: 0 28px;
+  }
+
+  .navigation {
+    gap: 18px;
+  }
+
+  .about-layout {
+    gap: 55px;
+    grid-template-columns: 0.8fr 1.2fr;
+  }
+
+  .price-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .price-card {
+    min-height: auto;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media screen and (max-width: 700px) {
+  :root {
+    --header-height: 70px;
+  }
+
+  body {
+    padding-bottom: 68px;
+    font-size: 14px;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: block;
+  }
+
+  .header {
+    height: var(--header-height);
+    padding: 0 20px;
+  }
+
+  .logo-mark {
+    width: 30px;
+    height: 30px;
+  }
+
+  .navigation {
+    position: fixed;
+    z-index: 999;
+    inset: var(--header-height) 0 0;
+    display: flex;
+    padding: 60px 28px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+    overflow-y: auto;
+height: calc(100vh - var(--header-height));
+
+    color: var(--dark);
+    background: rgba(255, 255, 255, 0.98);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-15px);
+    transition:
+      opacity 0.25s ease,
+      visibility 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .navigation.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .navigation a {
+    font-family: "Times New Roman", serif;
+    font-size: 30px;
+  }
+
+  .menu-button {
+    position: relative;
+    z-index: 1001;
+    display: block;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+
+  .menu-button span {
+    position: absolute;
+    left: 7px;
+    width: 24px;
+    height: 1px;
+    background: currentColor;
+    transition:
+      top 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .menu-button span:first-child {
+    top: 14px;
+  }
+
+  .menu-button span:last-child {
+    top: 23px;
+  }
+
+  .menu-button.is-open span:first-child {
+    top: 19px;
+    transform: rotate(45deg);
+  }
+
+  .menu-button.is-open span:last-child {
+    top: 19px;
+    transform: rotate(-45deg);
+  }
+
+  .hero {
+    min-height: 100svh;
+    padding: 130px 24px 100px;
+    align-items: flex-end;
+  }
+
+  .hero-background {
+    background-position: 58% center;
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(
+        0deg,
+        rgba(10, 10, 9, 0.72) 0%,
+        rgba(10, 10, 9, 0.05) 75%
+      );
+  }
+
+  .hero h1 {
+    margin-bottom: 25px;
+    font-size: clamp(44px, 14vw, 65px);
+  }
+
+  .hero-description {
+    margin-bottom: 30px;
+  }
+
+  .hero .button {
+    width: 100%;
+  }
+
+  .scroll-guide {
+    display: none;
+  }
+
+  .section {
+    padding: 95px 24px;
+  }
+
+  .section-heading {
+    margin-bottom: 50px;
+  }
+
+  .section-heading h2,
+  .feature-introduction h2,
+  .contact-content h2 {
+    font-size: 39px;
+  }
+
+  .about-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 55px;
+  }
+
+  .about-copy {
+    padding-bottom: 0;
+  }
+
+  .about-lead {
+    font-size: 34px;
+  }
+
+  .about-images {
+    width: calc(100% + 24px);
+    margin-right: -24px;
+    grid-template-columns: 1.15fr 0.85fr;
+  }
+
+  .feature-introduction {
+    padding: 100px 24px;
+  }
+
+  .feature-introduction h2 {
+    margin-bottom: 40px;
+  }
+
+  .feature-lead {
+    font-size: 26px;
+  }
+
+  .feature-cards-section {
+    padding-top: 0;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-card {
+    min-height: auto;
+    padding: 42px 28px;
+  }
+
+  .feature-number {
+    margin-bottom: 60px;
+  }
+
+  .feature-card h3 {
+    font-size: 30px;
+  }
+
+  .price-grid {
+    gap: 16px;
+  }
+
+  .price-card {
+    padding: 40px 25px;
+  }
+
+  .faq-list {
+    margin-left: 0;
+  }
+
+  .faq-item summary {
+    min-height: 82px;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .faq-item > p {
+    padding: 0 42px 30px 0;
+  }
+
+  .contact-section {
+    min-height: 650px;
+    padding: 100px 24px;
+  }
+
+  .footer {
+    padding: 70px 24px 30px;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  .footer-navigation {
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .mobile-reservation {
+    position: fixed;
+    z-index: 1100;
+    right: 12px;
+    bottom: 10px;
+    left: 12px;
+    display: flex;
+    min-height: 54px;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    background: var(--dark);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+  }
+}
+/* ========================================
+   BUCCA-INSPIRED REFINEMENT
+   物華のような静かな和の空気感
+======================================== */
+
+:root {
+  --white: #f4f1e9;
+  --off-white: #ece8de;
+  --beige: #ded8cb;
+  --gray: #77746d;
+  --dark: #25241f;
+  --line: rgba(37, 36, 31, 0.22);
+}
+
+/* 全体 */
+body {
+  color: var(--dark);
+  background: var(--white);
+  font-family:
+    "Hiragino Mincho ProN",
+    "Yu Mincho",
+    "YuMincho",
+    "Noto Serif JP",
+    serif;
+  font-size: 14px;
+  line-height: 2.15;
+  letter-spacing: 0.08em;
+}
+
+/* 英字だけ細いゴシック */
+.section-label,
+.hero-label,
+.navigation,
+.price-category,
+.recommended-label,
+.logo-text small,
+.footer-logo small {
+  font-family:
+    "Helvetica Neue",
+    "Hiragino Sans",
+    sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+}
+
+/* 見出しを控えめに */
+.hero h1,
+.section-heading h2,
+.feature-introduction h2,
+.contact-content h2,
+.about-lead,
+.feature-lead,
+.feature-card h3,
+.price-name {
+  font-family:
+    "Hiragino Mincho ProN",
+    "Yu Mincho",
+    "YuMincho",
+    serif;
+  font-weight: 400;
+}
+
+/* ヘッダー */
+.header {
+  height: 82px;
+  padding: 0 38px;
+  color: var(--dark);
+  border-bottom: 1px solid var(--line);
+  background: rgba(244, 241, 233, 0.92);
+  backdrop-filter: blur(8px);
+}
+
+.header.is-scrolled {
+  color: var(--dark);
+  background: rgba(244, 241, 233, 0.97);
+}
+
+.logo-mark {
+  border-radius: 0;
+  border: 0;
+  width: 20px;
+  height: 38px;
+}
+
+.logo-mark::before {
+  display: block;
+  content: "◯";
+  font-family:
+    "Hiragino Mincho ProN",
+    "Yu Mincho",
+    serif;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.logo-text strong,
+.footer-logo strong {
+  font-family:
+    "Hiragino Mincho ProN",
+    "Yu Mincho",
+    serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+}
+
+.navigation {
+  gap: 34px;
+}
+
+.navigation a {
+  font-size: 10px;
+}
+
+/* HERO */
+.hero {
+  min-height: 90svh;
+  padding: 150px 8vw 90px;
+  color: var(--dark);
+  background: #d5d0c5;
+}
+
+.hero-overlay {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(244, 241, 233, 0.85) 0%,
+      rgba(244, 241, 233, 0.48) 45%,
+      rgba(244, 241, 233, 0.08) 100%
+    );
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+.hero-label {
+  margin-bottom: 42px;
+  font-size: 9px;
+  color: #555149;
+}
+
+.hero h1 {
+  margin-bottom: 42px;
+  font-size: clamp(42px, 5vw, 72px);
+  line-height: 1.55;
+  letter-spacing: 0.14em;
+}
+
+.hero-description {
+  margin-bottom: 50px;
+  font-size: 13px;
+  line-height: 2.4;
+  letter-spacing: 0.12em;
+}
+
+.scroll-guide {
+  color: var(--dark);
+}
+
+.scroll-line {
+  background: rgba(37, 36, 31, 0.25);
+}
+
+.scroll-line::after {
+  background: var(--dark);
+}
+
+/* ボタンを“ボタンっぽくしすぎない” */
+.button {
+  min-width: 220px;
+  min-height: 48px;
+  padding: 10px 0;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  font-size: 11px;
+  background: transparent;
+}
+
+.button-light,
+.button-outline,
+.contact-button {
+  color: inherit;
+  background: transparent;
+  border-color: currentColor;
+}
+
+.button-light:hover,
+.button-outline:hover,
+.contact-button:hover {
+  color: inherit;
+  background: transparent;
+  opacity: 0.6;
+}
+
+/* セクション */
+.section,
+.feature-introduction {
+  padding-top: 160px;
+  padding-bottom: 160px;
+}
+
+.section-heading {
+  margin-bottom: 90px;
+}
+
+.section-heading h2,
+.feature-introduction h2,
+.contact-content h2 {
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.65;
+  letter-spacing: 0.12em;
+}
+
+.section-label {
+  margin-bottom: 32px;
+  color: var(--gray);
+  font-size: 9px;
+}
+
+/* ABOUT */
+.about {
+  background: var(--white);
+}
+
+.about-layout {
+  grid-template-columns: 0.75fr 1.25fr;
+  gap: 11vw;
+}
+
+.about-lead {
+  font-size: clamp(26px, 3vw, 40px);
+  line-height: 1.8;
+  letter-spacing: 0.12em;
+}
+
+.about-copy > p:not(.about-lead) {
+  font-size: 13px;
+  line-height: 2.4;
+}
+
+.about-images {
+  gap: 12px;
+}
+
+/* FEATURE */
+.feature-introduction {
+  background: var(--off-white);
+}
+
+.feature-lead {
+  font-size: clamp(22px, 2.6vw, 34px);
+  line-height: 1.9;
+}
+
+.feature-cards-section {
+  background: var(--off-white);
+}
+
+.feature-grid {
+  border-color: var(--line);
+}
+
+.feature-card {
+  min-height: 480px;
+  padding: 62px 48px;
+  background: transparent;
+}
+
+.feature-number {
+  margin-bottom: 120px;
+  font-size: 10px;
+}
+
+.feature-card h3 {
+  font-size: clamp(24px, 2.5vw, 34px);
+  line-height: 1.7;
+  letter-spacing: 0.1em;
+}
+
+.feature-card > p:last-child {
+  font-size: 13px;
+  line-height: 2.2;
+}
+
+/* PRICE：カード感を弱くする */
+.price-section {
+  background: var(--white);
+}
+
+.price-grid {
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.price-card {
+  min-height: 680px;
+  padding: 58px 42px;
+  border: 0;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+}
+
+.price-card-featured {
+  color: var(--dark);
+  background: var(--off-white);
+}
+
+.recommended-label {
+  color: var(--dark);
+  background: transparent;
+  border-left: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.price {
+  font-family:
+    "Hiragino Mincho ProN",
+    "Yu Mincho",
+    serif;
+  font-size: clamp(38px, 4vw, 54px);
+}
+
+.price-card-featured .price-category,
+.price-card-featured .price-description,
+.ticket-row span {
+  color: var(--gray);
+}
+
+.price-card-featured .price-list li,
+.ticket-row {
+  border-color: var(--line);
+}
+
+.ticket-row strong {
+  font-family:
+    "Hiragino Mincho ProN",
+    "Yu Mincho",
+    serif;
+}
+
+/* FAQ */
+.faq-section {
+  background: var(--off-white);
+}
+
+.faq-item summary {
+  min-height: 105px;
+  font-size: 16px;
+  line-height: 2;
+}
+
+/* CONTACT */
+.contact-section {
+  min-height: 760px;
+}
+
+.contact-overlay {
+  background: rgba(32, 30, 25, 0.38);
+}
+
+/* FOOTER */
+.footer {
+  color: var(--dark);
+  background: var(--white);
+  border-top: 1px solid var(--line);
+}
+
+.footer-top {
+  border-color: var(--line);
+}
+
+.footer-bottom {
+  color: var(--gray);
+}
+
+/* スマホ */
+@media screen and (max-width: 700px) {
+  body {
+    font-size: 13px;
+  }
+
+  .header {
+    height: 68px;
+    padding: 0 18px;
+  }
+
+  .hero {
+    min-height: 92svh;
+    padding: 125px 24px 80px;
+    align-items: center;
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(
+        0deg,
+        rgba(244, 241, 233, 0.9) 0%,
+        rgba(244, 241, 233, 0.48) 65%,
+        rgba(244, 241, 233, 0.15) 100%
+      );
+  }
+
+  .hero h1 {
+    font-size: 40px;
+    line-height: 1.65;
+  }
+
+  .hero-description {
+    font-size: 12px;
+  }
+
+  .section,
+  .feature-introduction {
+    padding-top: 105px;
+    padding-bottom: 105px;
+  }
+
+  .section-heading h2,
+  .feature-introduction h2,
+  .contact-content h2 {
+    font-size: 32px;
+    line-height: 1.7;
+  }
+
+  .about-images {
+    width: 100%;
+    margin: 0;
+  }
+
+  .feature-card {
+    padding: 48px 26px;
+  }
+
+  .feature-number {
+    margin-bottom: 72px;
+  }
+
+  .price-card {
+    min-height: auto;
+    padding: 48px 26px;
+  }
+
+  .mobile-reservation {
+    color: var(--white);
+    background: var(--dark);
+  }
+}
+/* ==========================
+   Loading Screen
+========================== */
+
+#loading{
+    position: fixed;
+    inset: 0;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity .8s ease, visibility .8s ease;
+}
+
+#loading img{
+    width: 220px;
+}
+
+#loading.hide{
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+/* ==========================
+   CONTACT
+========================== */
+
+.contact-section{
+
+    padding:140px 24px;
+
+    background:#F8F6F2;
+
+    text-align:center;
+
+}
+
+.contact-section .section-heading{
+
+    max-width:650px;
+
+    margin:0 auto;
+
+}
+
+.contact-section h2{
+
+    margin-bottom:24px;
+
+}
+
+.contact-button{
+
+    margin-top:50px;
+
+}
+
+.contact-button .button{
+
+    min-width:280px;
+
+}
